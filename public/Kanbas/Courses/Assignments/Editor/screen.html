@@ -1,0 +1,118 @@
+<html>
+  <head> </head>
+  <body>
+    <table>
+      <tbody>
+        <tr>
+          <td valign="top">
+            <ul>
+              <li>
+                <a href="/Kanbas/Account/Navigation/index.html"> Account</a>
+              </li>
+              <hr>
+              <li>
+                <a href="/Kanbas/Dashboard/screen.html">Dashboard</a>
+              </li>
+              <hr>
+              
+              <li>
+                <a href="/Kanbas/Courses/Home/screen.html">Courses</a>
+              </li>
+              <hr>
+              <li>
+                <a href="/Kanbas/Calendar/index.html">Calendar</a>
+              </li>
+              <hr>
+              <li><a href="/Kanbas/Inbox/index.html">Inbox</a></li>
+              <hr>
+            </ul>
+          </td>
+          <td valign="top" style="width:40%">
+            <ul>
+              <li>
+                <a href="/Kanbas/Courses/Home/screen.html"> Home</a>
+              </li>
+              <hr style="width:65%;text-align:left;margin-left:0">
+              <li>
+                <a href="#"> Modules</a>
+              </li>
+              <hr style="width:65%;text-align:left;margin-left:0">
+              <li><a href="#"> Piazza</a></li>
+              <hr style="width:65%;text-align:left;margin-left:0">
+              <li><a href="/Kanbas/Courses/Grades/screen.html"> Grades</a></li>
+              <hr style="width:65%;text-align:left;margin-left:0">
+              <li><a href="/Kanbas/Courses/Assignments/screen.html"> Assignments</a></li>
+              <hr style="width:65%;text-align:left;margin-left:0">
+            </ul>
+          </td>
+          <td>
+            <form action="/Kanbas/Courses/Assignments/screen.html">
+              <select>
+                <option>Speed Grader</option>
+              </select>
+              <hr />
+              <h2>Assignment Name</h2>
+              <input value="A1 - HTML" />
+              <br />
+              <br />
+              <textarea rows="5">This is the assignment description.</textarea>
+              <br />
+              <br />
+              <label for="points">Points</label><br />
+              <input id="points" value="100" />
+              <br />
+              <br />
+              <label>Assignment Group</label><br />
+              <select>
+                <option>ASSIGNMENT</option>
+                <option>QUIZ</option>
+                <option>EXAM</option>
+                <option>PROJECT</option>
+              </select>
+              <br />
+              <br />
+              <label>Display Grade as</label><br />
+              <select>
+                <option>Percentage</option>
+                <option>Decimal</option>
+              </select>
+              <br />
+              <br />
+              <label>Submission Type</label><br />
+              <select style="width: 80;">
+                <option>Online </option>
+              </select>
+              <br />
+              <br />
+              <label>Online Entry Options</label><br />
+              <label
+                ><input type="checkbox" name="online-entry-options" />Text
+                Entry</label
+              ><br />
+              <input type="checkbox" name="online-entry-options" />Website
+              URL<br />
+              <input type="checkbox" name="online-entry-options" />Media
+              Recordings<br />
+              <input type="checkbox" name="online-entry-options" />Student
+              Annotations<br />
+              <input type="checkbox" name="online-entry-options" />File 
+              Uploads<br />
+              <br />
+
+              <label>Due Date</label><br />
+              <input type="date" value="2024-01-01" /><br />
+              <br />
+              <br />
+              <label>Available from</label><br />
+              <input type="date" value="2024-01-01" /><br /><br /><br />
+              <label>Until</label><br />
+              <input type="date" value="2024-01-01" /><br /><br /><br />
+              <button>Cancel</button>
+              <button>Save</button>
+            </form>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>
