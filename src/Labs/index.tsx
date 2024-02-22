@@ -4,6 +4,7 @@ This is a Labs component to work on all lab exercises
 import Assignment3 from "./a3";
 import Nav from "../Nav";
 import {Routes, Route, Link} from "react-router-dom";
+import React from "react";
 
 function Labs() {
   return (
@@ -19,3 +20,4 @@ function Labs() {
   );
 }
 export default Labs;
+
