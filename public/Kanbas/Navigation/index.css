@@ -1,28 +1,56 @@
+/*
+Style for the style of the overall sidebar
+*/
 .wd-kanbas-navigation {
   background-color: black;
   list-style: none;
-  color: white;
-  font-family: sans-serif;
-  margin: 0;
-  padding: 0;
-  width: 85;
-  height: 100%;
-}
-.wd-kanbas-navigation li {
-  text-align: center;
-  padding: 10px;
+  padding: 0px;
+  margin: 0px;
+  width: 80px;
+  height: 100vh;
+
 }
 
-.wd-kanbas-navigation li a {
-  color: white;
-  text-decoration: none;
-  font-size: 0.8em;
-}
+  .wd-kanbas-navigation li {
+    padding: 10px;     margin-bottom: 10px;
+    font-size: 0.8em;  text-align: center;
+  }
+  /*
+  Style for the hover of the sidebar
+  */
+  .wd-kanbas-navigation li.wd-active {
+    background-color: white;
+  }
 
-.wd-kanbas-navigation li.wd-active {
-  background-color: white;
-}
+  /*
+  Style for the active text of the sidebar
+  */
+  .wd-kanbas-navigation li.wd-active a {
+    color: red;
+  }
+  /*
+  Style for the text of the sidebar
+  */
+  .wd-kanbas-navigation a {
+    color: White;
+    text-decoration: none;
+  }
 
-.wd-kanbas-navigation li.wd-active a {
-  color: red;
+  /*
+  Style for the color of the icons in the sidebar
+  */
+  .wd-kanbas-navigation a i {
+    color: red;
+    font-size: 2em;
+    margin-bottom: 5px;
+    margin-top:-5px;
+  }
+
+.wd-kanbas-navigation-breadcrumb2{
+  background-color: black;
+  list-style: none;
+  padding: 0px;
+  margin: 0px;
+  width: 80px;
+  height: 100vh;
 }

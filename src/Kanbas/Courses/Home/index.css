@@ -1,0 +1,20 @@
+.buttons {
+    justify-content: space-between;
+    margin-bottom: 10px;
+    margin-left:15px;
+    background-color: rgba(204, 201, 201, 0.286);
+    color: black;
+    width: 200px;
+  }
+
+  .ToDo {
+    font-size: 19px;
+    color:rgb(183, 2, 2);
+    margin-left: -19px;
+  }
+  .subText_ToDo {
+    color:grey;
+    font-size: 15px;
+    margin-left: 10px;
+  }
+  

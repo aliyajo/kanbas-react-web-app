@@ -3,24 +3,27 @@
     "_id": "RS101",
     "name": "Rocket Propulsion",
     "number": "RS4550",
+    "semester": "Spring 2023",
     "startDate": "2023-01-10",
     "endDate": "2023-05-15",
-    "image": "rocket-propulsion.png"
+    "image": "reactjs.jpg"
   },
   {
     "_id": "RS102",
     "name": "Aerodynamics",
     "number": "RS4560",
+    "semester": "Spring 2023",
     "startDate": "2023-01-10",
     "endDate": "2023-05-15",
-    "image": "aerodynamics.png"
+    "image": "reactjs.jpg"
   },
   {
     "_id": "RS103",
     "name": "Spacecraft Design",
     "number": "RS4570",
+    "semester": "Spring 2023",
     "startDate": "2023-01-10",
     "endDate": "2023-05-15",
-    "image": "spaceship-design.png"
+    "image": "reactjs.jpg"
   }
 ]

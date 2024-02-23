@@ -1,44 +1,28 @@
 import React from "react";
-import courses from "../Database/courses.json";
 import { Link } from "react-router-dom";
+import courses from "../Database/courses.json";
+;
 function Dashboard() {
   return (
     <div className="p-4">
-      <h1>Dashboard</h1>
-      <hr />
-      <h2>Published Courses (12)</h2>
-      <hr />
+      <h1>Dashboard</h1>              <hr />
+      <h2>Published Courses (12)</h2> <hr />
       <div className="row">
         <div className="row row-cols-1 row-cols-md-5 g-4">
           {courses.map((course) => (
-            <div className="col" style={{ width: "300px" }}>
+            <div key={course._id} className="col" style={{ width: 300 }}>
               <div className="card">
-                <img
-                  src="/images/reactjs.jpg"
-                  className="card-img-top"
-                  style={{ maxHeight: "150px" }}
-                />
+                <img src={`/images/${course.image}`} className="card-img-top"
+                     style={{ height: 150 }}/>
                 <div className="card-body">
-                  <Link
-                    className="card-title"
-                    to={`/Kanbas/Courses/${course._id}`}
-                    style={{
-                      textDecoration: "none",
-                      color: "navy",
-                      fontWeight: "bold",
-                    }}
-                  >
-                    {course.name}
-                  </Link>
-                  <p className="card-text">Full Stack software developer</p>
-                  <Link to="#" className="btn btn-primary">
-                    Go{" "}
-                  </Link>
+                  <Link className="card-title" to={`/Kanbas/Courses/${course._id}/Home`}
+                    style={{ textDecoration: "none", color: "navy", fontWeight: "bold" }}>
+                    {course.name} </Link>
+                  <p className="card-text">{course.name}</p>
+                  <Link to={`/Kanbas/Courses/${course._id}/Home`} className="btn btn-primary">
+                    Go </Link>
                 </div>
               </div>
-              <pre>
-                <code>{JSON.stringify(course, null, 2)}</code>
-              </pre>
             </div>
           ))}
         </div>
@@ -46,5 +30,4 @@ function Dashboard() {
     </div>
   );
 }
-
 export default Dashboard;

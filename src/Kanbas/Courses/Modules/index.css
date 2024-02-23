@@ -1,10 +1,18 @@
+
+.buttons-modules {
+  justify-content: space-between;
+  margin-bottom: 10px;
+  background-color: rgba(204, 201, 201, 0.341);
+  color: black;
+  margin: 2px;
+  ;}
+
 .wd-modules,
 .wd-modules * {
   border-radius: 0%;
   border: none;
   margin: 0px;
   padding: 0px;
-  
 }
 
 .wd-modules {
@@ -12,19 +20,19 @@
 }
 
 .wd-modules > li {
-  background-color: whitesmoke;
-  border: 1px solid lightgray !important;
+  background-color: lightgray;
+  border: 1px solid gray !important;
   border-left: none !important;
 }
 
 .wd-modules > li > div {
   padding: 6px;
-  border-left: 1px solid  !important;
+  border-left: 1px solid gray !important;
 }
 
 .wd-modules > li > ul > li {
-  padding: 10px;
-  border-top: 1px solid lightgray !important;
+  padding: 5px;
+  border-top: 1px solid gray !important;
   border-left: 2px solid green;
 }
 

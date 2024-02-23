@@ -1,180 +1,136 @@
 <html>
   <head>
-    <link href="/libs/bootstrap/bootstrap.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="/Kanbas/styles.css" />
+    <link rel="stylesheet" href="\libs\bootstrap.min.css" />
     <link rel="stylesheet" href="/Kanbas/Navigation/index.css" />
+    <link rel="stylesheet" href="/Kanbas/Courses/Navigation/index.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.css" />
+    <style>
+      /* Add flex display property */
+      .d-flex {
+          display: flex;
+      }
+      
+      /* Adjust width of flex items */
+      .flex-grow-0 {
+          flex: 0 0 auto; /* Adjust as needed */
+      }
+  </style>
   </head>
   <body>
     <div class="d-flex">
-      <div>
+      <div class="flex-grow-0 d-none d-md-block">
         <ul class="wd-kanbas-navigation">
-          <li><a href="/Kanbas/Account/Navigation/index.html"> Account</a></li>
+          <li><a href="http://northeastern.edu">N</a></li>
+          <li><a href="/Kanbas/Account/Profile/screen.html"><i class="fa fa-user" style="color:white;"></i> Account</a></li>
           <li class="wd-active">
-            <a href="/Kanbas/Dashboard/screen.html">Dashboard</a>
-          </li>
-          <li>
-            <a href="/Kanbas/Courses/Home/screen.html">Courses</a>
-          </li>
-          <li>
-            <a href="#">Calendar</a>
-          </li>
-          <li><a href="#">Inbox</a></li>
+            <a href="/Kanbas/Dashboard/screen.html"><i class="fa fa-tachometer"></i> Dashboard</a></li>
+          <li><a href="/Kanbas/Courses/Home/screen.html"><i class="fa fa-book"></i> Courses</a></li>
+          <li><a href="#"><i class="fa fa-calendar"></i> Calendar</a></li>
+          <li><a href="#"><i style="font-size:2.45em; margin-top:-5px" class="fa fa-inbox"></i> Inbox</a></li>
+          <li><a href="#"><i class="fa fa-tv"></i> Studio</a></li>
+          <li><a href="#"><i class="fa fa-clock"></i> History</a></li>
+          <li><a href="#"><i class="fa fa-arrow-up-right-from-square"></i> Commons</a></li>
+          <li><a href="#"><i style="font-size:2.75em; margin-top:-5px" class="fa fa-circle-question"></i> Help</a></li>
         </ul>
       </div>
-      <div class="p-4">
-        <h1>Dashboard</h1>
-        <hr />
-        <h2>Published Courses (12)</h2>
-        <hr />
+      <div class="p-4" style="margin-left: 20;">
+        <h1>Dashboard</h1> <hr />
+        <h2>Published Courses(12)</h2> <hr />
         <div class="row">
           <div class="row row-cols-1 row-cols-md-5 g-4">
+            <!-- Class 1-->
             <div class="col" style="width: 300px">
               <div class="card">
-                <img
-                  src="/images/reactjs.jpg"
-                  class="card-img-top"
-                  style="max-height: 150px"
-                />
+                <img src="/images/picture1.jpg" class="card-img-top" alt="..."
+                style="max-height:150px"/>
                 <div class="card-body">
-                  <a
-                    class="card-title"
-                    href="/Kanbas/Courses/Home/screen.html"
-                    style="
-                      text-decoration: none;
-                      color: navy;
-                      font-weight: bold;
-                    "
-                  >
-                    CS1234 React JS</a
-                  >
-                  <p class="card-text">Full Stack software developer</p>
-                  <a html="#" class="btn btn-primary"> Go </a>
+                  <h5 class="card-title">Course 1</h5>
+                  <p class="card-text">This is a sample course</p>
+                  <a href="#" class="btn btn-primary">Go to Course</a>
                 </div>
               </div>
             </div>
+
+            <!-- Class 2-->
             <div class="col" style="width: 300px">
               <div class="card">
-                <img
-                  src="/images/reactjs.jpg"
-                  class="card-img-top"
-                  style="max-height: 150px"
-                />
+                <img src="/images/picture2.jpg" class="card-img-top" alt="..."
+                style="max-height:150px"/>
                 <div class="card-body">
-                  <a
-                    class="card-title"
-                    href="/Kanbas/Courses/Home/screen.html"
-                    style="
-                      text-decoration: none;
-                      color: navy;
-                      font-weight: bold;
-                    "
-                  >
-                    CS1234 React JS</a
-                  >
-                  <p class="card-text">Full Stack software developer</p>
-                  <a html="#" class="btn btn-primary"> Go </a>
+                  <h5 class="card-title">Course 1</h5>
+                  <p class="card-text">This is a sample course</p>
+                  <a href="#" class="btn btn-primary">Go to Course</a>
                 </div>
               </div>
             </div>
+
+            <!-- Class 3-->
             <div class="col" style="width: 300px">
               <div class="card">
-                <img
-                  src="/images/reactjs.jpg"
-                  class="card-img-top"
-                  style="max-height: 150px"
-                />
+                <img src="/images/picture3.jpg" class="card-img-top" alt="..."
+                style="max-height:150px"/>
                 <div class="card-body">
-                  <a
-                    class="card-title"
-                    href="/Kanbas/Courses/Home/screen.html"
-                    style="
-                      text-decoration: none;
-                      color: navy;
-                      font-weight: bold;
-                    "
-                  >
-                    CS1234 React JS</a
-                  >
-                  <p class="card-text">Full Stack software developer</p>
-                  <a html="#" class="btn btn-primary"> Go </a>
+                  <h5 class="card-title">Course 1</h5>
+                  <p class="card-text">This is a sample course</p>
+                  <a href="#" class="btn btn-primary">Go to Course</a>
                 </div>
               </div>
             </div>
+            
+            <!-- Class 4-->
             <div class="col" style="width: 300px">
               <div class="card">
-                <img
-                  src="/images/reactjs.jpg"
-                  class="card-img-top"
-                  style="max-height: 150px"
-                />
+                <img src="/images/picture4.jpg" class="card-img-top" alt="..."
+                style="max-height:150px"/>
                 <div class="card-body">
-                  <a
-                    class="card-title"
-                    href="/Kanbas/Courses/Home/screen.html"
-                    style="
-                      text-decoration: none;
-                      color: navy;
-                      font-weight: bold;
-                    "
-                  >
-                    CS1234 React JS</a
-                  >
-                  <p class="card-text">Full Stack software developer</p>
-                  <a html="#" class="btn btn-primary"> Go </a>
+                  <h5 class="card-title">Course 1</h5>
+                  <p class="card-text">This is a sample course</p>
+                  <a href="#" class="btn btn-primary">Go to Course</a>
                 </div>
               </div>
             </div>
+
+            <!-- Class 5-->
             <div class="col" style="width: 300px">
               <div class="card">
-                <img
-                  src="/images/reactjs.jpg"
-                  class="card-img-top"
-                  style="max-height: 150px"
-                />
+                <img src="/images/picture5.jpg" class="card-img-top" alt="..."
+                style="max-height:150px"/>
                 <div class="card-body">
-                  <a
-                    class="card-title"
-                    href="/Kanbas/Courses/Home/screen.html"
-                    style="
-                      text-decoration: none;
-                      color: navy;
-                      font-weight: bold;
-                    "
-                  >
-                    CS1234 React JS</a
-                  >
-                  <p class="card-text">Full Stack software developer</p>
-                  <a html="#" class="btn btn-primary"> Go </a>
+                  <h5 class="card-title">Course 1</h5>
+                  <p class="card-text">This is a sample course</p>
+                  <a href="#" class="btn btn-primary">Go to Course</a>
                 </div>
               </div>
             </div>
-            <div class="col" style="width: 300px">
+
+            <!-- Class 6-->
+            <div class="col" style="width: 300px; height:300px">
               <div class="card">
-                <img
-                  src="/images/reactjs.jpg"
-                  class="card-img-top"
-                  style="max-height: 150px"
-                />
+                <img src="/images/picture6.jpg" class="card-img-top" alt="..."
+                style="max-height:150px"/>
                 <div class="card-body">
-                  <a
-                    class="card-title"
-                    href="/Kanbas/Courses/Home/screen.html"
-                    style="
-                      text-decoration: none;
-                      color: navy;
-                      font-weight: bold;
-                    "
-                  >
-                    CS1234 React JS</a
-                  >
-                  <p class="card-text">Full Stack software developer</p>
-                  <a html="#" class="btn btn-primary"> Go </a>
+                  <h5 class="card-title">Course 1</h5>
+                  <p class="card-text">This is a sample course</p>
+                  <a href="#" class="btn btn-primary">Go to Course</a>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
+
+            <!-- Class 7-->
+            <div class="col" style="width: 300px">
+              <div class="card">
+                <img src="/images/picture7.jpg" class="card-img-top" alt="..."
+                style="max-height:150px"/>
+                <div class="card-body">
+                  <h5 class="card-title">Course 1</h5>
+                  <p class="card-text">This is a sample course</p>
+                  <a href="#" class="btn btn-primary">Go to Course</a>
+                </div>
+              </div>
+            </div>
+      </div> 
+    </div> 
   </body>
 </html>
+  

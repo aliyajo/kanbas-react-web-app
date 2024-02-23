@@ -1,16 +1,26 @@
+/* This is for the style of the actual course icons*/
+.icon-style {
+  color:red;
+  font-size: 30px;
+}
+
+/* This is for the navigation bar on the side, the actual bar */
 .wd-kanbas-navigation {
   background-color: black;
   list-style: none;
   color: white;
   font-family: sans-serif;
-  margin: 0;
   padding: 0;
   width: 85;
-  height: 100%;
+  height: max;
 }
+
+/* This is for the navigation bar on the side, the actual content inside of it */
 .wd-kanbas-navigation li {
   text-align: center;
   padding: 10px;
+  font-size:large;
+  height: 90px;
 }
 
 .wd-kanbas-navigation li a {
