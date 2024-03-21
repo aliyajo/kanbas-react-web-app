@@ -1,9 +1,8 @@
 import React from "react";
-// import './App.css';
+import './App.css';
 import HelloWorld from "./HelloWorld";
 import Labs from "./Labs";
 import { HashRouter, Link, Navigate, Route, Routes } from "react-router-dom";
-import Nav from "./Nav";
 import Kanbas from "./Kanbas";
 
 function App() {
