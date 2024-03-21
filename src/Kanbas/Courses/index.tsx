@@ -11,9 +11,9 @@ import AssignmentEditor from "./Assignments/Editor";
 import Grades from "./Grades";
 
 
-function Courses() {
+function Courses({ courses }: { courses: any[]; }) {
   const { courseId } = useParams();
-  const course = courses.find((course) => course._id === courseId) ;
+  const course = courses.find((course) => course._id === courseId); 
   const { pathname } = useLocation();
   const pathSegments = pathname.split('/').filter(segment => segment !== '');
 
@@ -21,14 +21,14 @@ function Courses() {
     <div>
       {/* Mini sub bar of navigation in courses */}
       <div className="course-mini-navigation">
-        <HiMiniBars3 /> {" "} {course?.number} {course?.name} /
+        <HiMiniBars3 /> {" "} {course?.number} {course?.name} {">"}
         {/*Breadcrumb*/}
         {pathSegments.slice(3).map((segment, index) => (
           <React.Fragment key={index}>
-            <Link to={`/${segment}`}
+            <Link to={`>${segment}`}
             className="course-mini-navigation"
             style={{textDecoration:"none"}}>{segment}</Link>
-            {index !== pathSegments.length - 4 && <span> / </span>}
+            {index !== pathSegments.length - 4 && <span> {">"} </span>}
           </React.Fragment>
         ))}
       </div>

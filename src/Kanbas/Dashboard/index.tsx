@@ -1,46 +1,14 @@
 import React, {useState} from "react";
 import { Link } from "react-router-dom";
-import Courses from "../Database/courses.json";
 import { FaPlus } from 'react-icons/fa';
 
-function Dashboard() {
-  // Create courses state
-  const [courses, setCourses] = useState(Courses);
-  // Create a course object with default values
-  const [course, setCourse] = useState({
-    "_id": "0",
-    "name": "New Course",
-    "number": "New Number",
-    "semester": "New Semester",
-    "startDate": "2023-01-10",
-    "endDate": "2023-05-15",
-    "image": "reactjs.jpg"
-  });
-  // Create a addNewCourse event handler
-  const addNewCourse = () => {
-    // Create a new course object with a unique _id
-    const newCourse = { ...course,
-                        _id: new Date().getTime().toString() };
-    // Add the new course to the courses state
-    setCourses([...courses, { ...course, ...newCourse }]);
-  };
-  // Create a deleteCourse event handler
-  const deleteCourse = (courseId: string) => {
-    // Filter out the course with the courseId and update the courses state
-    setCourses(courses.filter((course) => course._id !== courseId));
-  };
-  // Create a updateCourse event handler
-  const updateCourse = () => {
-    setCourses(
-      courses.map((c) => {
-        if (c._id === course._id) {
-          return course;
-        } else {
-          return c;
-        }
-      })
-    );
-  };
+function Dashboard(
+    { courses, course, setCourse, addNewCourse,
+      deleteCourse, updateCourse }: {
+        courses: any[]; course: any; setCourse: (course: any) => void;
+        addNewCourse: () => void; deleteCourse: (course: any) => void;
+        updateCourse: () => void;
+      }) {
   // Declare the showForm variable
   const [showForm, setShowForm] = useState(true);
   // Declare the updateMode variable
