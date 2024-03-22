@@ -6,7 +6,21 @@
   color: black;
   margin: 2px;
   border: 1px solid lightgray;
-  ;}
+}
+
+.configure-modules {  
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  border: 1px solid lightgray;
+}
+
+  .module-input {
+    color: gray;
+    text-indent: .25cm;
+    width: 50%;
+    height: 50px;
+  }
 
 .wd-modules,
 .wd-modules * {
