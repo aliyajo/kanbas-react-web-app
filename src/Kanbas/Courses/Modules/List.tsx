@@ -16,7 +16,7 @@ import { KanbasState } from "../../store";
 function ModuleList() {
   const { courseId } = useParams();
   const modulesList = modules.filter((module) => module.course === courseId);
-  const [selectedModule, setSelectedModule] = useState(modulesList[0]);
+  const [selectedModule] = useState(modulesList[0]);
   const moduleList = useSelector((state: KanbasState) => 
     state.modulesReducer.modules);
   const module = useSelector((state: KanbasState) => 
@@ -133,6 +133,7 @@ function ModuleList() {
               </span>
               <p>{module.description}</p>
             </div>
+            {/* Module Lessons */}
             {selectedModule._id === module._id && (
                 <ul className="list-group">
                   {module.lessons?.map((lesson: any, index: any) => (

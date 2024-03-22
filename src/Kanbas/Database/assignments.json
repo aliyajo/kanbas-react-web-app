@@ -1,11 +1,11 @@
 [
-  { "_id": "A101", "title": "Propulsion Assignment", "course": "RS101", "duedate": "May 15 at 11:59pm", "points": 100 },
-  { "_id": "A102", "title": "Combustion Analysis", "course": "RS101", "duedate": "May 20 at 11:59pm", "points": 100 },
-  { "_id": "A103", "title": "Nozzle Design Project", "course": "RS101", "duedate": "May 25 at 11:59pm", "points": 100 },
-  { "_id": "A201", "title": "Aerodynamics Quiz", "course": "RS102", "duedate": "Jun 01 at 11:59pm", "points": 100 },
-  { "_id": "A202", "title": "Flow Analysis", "course": "RS102", "duedate": "Jun 05 at 11:59pm", "points": 100 },
-  { "_id": "A203", "title": "Heating Analysis", "course": "RS102", "duedate": "Jun 10 at 11:59pm", "points": 100 },
-  { "_id": "A301", "title": "Structural Design Task", "course": "RS103", "duedate": "Jun 15 at 11:59pm", "points": 100 },
-  { "_id": "A302", "title": "Orbital Calculations", "course": "RS103", "duedate": "Jun 20 at 11:59pm", "points": 100 },
-  { "_id": "A303", "title": "Systems Engineering Exam", "course": "RS103", "duedate": "Jun 25 at 11:59pm", "points": 100 }
+  { "_id": "A101", "title": "Propulsion Assignment", "course": "RS101", "duedate": "2024-05-15T23:59", "points": 100, "availablefrom": "2024-05-01", "until": "2024-05-14", "description": "Complete the propulsion assignment by analyzing and designing a propulsion system." },
+  { "_id": "A102", "title": "Combustion Analysis", "course": "RS101", "duedate": "2024-05-20T23:59", "points": 100, "availablefrom": "2024-05-01", "until": "2024-05-19", "description": "Conduct a combustion analysis to study the chemical reactions and energy release in a combustion process." },
+  { "_id": "A103", "title": "Nozzle Design Project", "course": "RS101", "duedate": "2024-05-25T23:59", "points": 100, "availablefrom": "2024-05-01", "until": "2024-05-24", "description": "Design and optimize a nozzle for efficient fluid flow and thrust generation." },
+  { "_id": "A201", "title": "Aerodynamics Quiz", "course": "RS102", "duedate": "2024-06-01T23:59", "points": 100, "availablefrom": "2024-05-15", "until": "2024-05-31", "description": "Take a quiz to test your knowledge and understanding of aerodynamics principles." },
+  { "_id": "A202", "title": "Flow Analysis", "course": "RS102", "duedate": "2024-06-05T23:59", "points": 100, "availablefrom": "2024-05-15", "until": "2024-06-04", "description": "Analyze the fluid flow behavior in a given system using computational fluid dynamics (CFD) techniques." },
+  { "_id": "A203", "title": "Heating Analysis", "course": "RS102", "duedate": "2024-06-10T23:59", "points": 100, "availablefrom": "2024-05-15", "until": "2024-06-09", "description": "Perform a heating analysis to study the heat transfer and thermal behavior in a system." },
+  { "_id": "A301", "title": "Structural Design Task", "course": "RS103", "duedate": "2024-06-15T23:59", "points": 100, "availablefrom": "2024-06-01", "until": "2024-06-14", "description": "Complete a structural design task by designing and analyzing the structural components of a system." },
+  { "_id": "A302", "title": "Orbital Calculations", "course": "RS103", "duedate": "2024-06-20T23:59", "points": 100, "availablefrom": "2024-06-01", "until": "2024-06-19", "description": "Perform orbital calculations to determine the trajectory and parameters of a satellite in space." },
+  { "_id": "A303", "title": "Systems Engineering Exam", "course": "RS103", "duedate": "2024-06-25T23:59", "points": 100, "availablefrom": "2024-06-01", "until": "2024-06-24", "description": "Take an exam to assess your understanding of systems engineering principles and concepts." }
 ]

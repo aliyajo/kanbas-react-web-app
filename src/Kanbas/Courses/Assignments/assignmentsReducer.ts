@@ -5,8 +5,11 @@ const initialState = {
     assignments: assignments,
     assignment: {
         title: "New Assignment",
-        duedate: "2021-12-31",
-        points: "Points",
+        duedate: "2024-05-15T23:59",
+        points: 0,
+        description: "New Assignment Description",
+        availablefrom: "2021-12-31",
+        until: "2021-12-31",
     },
 };
 
@@ -16,10 +19,11 @@ const assignmentsSlice = createSlice({
     reducers: {
         // Add Assignment action
         addAssignment: (state, action) => {
-            state.assignments = [
-                { ...action.payload, _id: new Date().getTime().toString() },
-                ...state.assignments,
-            ];
+            const newAssignment = {
+            ...action.payload,
+            _id: new Date().getTime().toString()
+            };
+            state.assignments = [newAssignment, ...state.assignments];
         },
         // Delete Assignment action
             deleteAssignment: (state, action) => {
@@ -35,8 +39,7 @@ const assignmentsSlice = createSlice({
                     } else {
                         return assignment;
                     }
-                }
-                );
+                });
             },
             // Select Assignment action
             selectAssignment: (state, action) => {

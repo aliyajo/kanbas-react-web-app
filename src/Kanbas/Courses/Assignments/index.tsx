@@ -6,17 +6,14 @@ import { Link, useParams } from "react-router-dom";
 import { assignments } from "../../Database";
 import { useSelector, useDispatch } from "react-redux";
 import {
-  addAssignment,
   deleteAssignment,
-  updateAssignment,
-  selectAssignment,
+
 } from "./assignmentsReducer"
 import { KanbasState } from "../../store";
 
 function Assignments() {
   const { courseId } = useParams();
   const assignmentsList = assignments.filter((assignment) => assignment.course === courseId);
-  const [selectedAssignment, setSelectedAssignment] = useState(assignmentsList[0]);
   // Create a new assignment list
   const assignmentList = useSelector((state: KanbasState) =>
     state.assignmentReducer.assignments
@@ -71,73 +68,75 @@ function Assignments() {
           </span>
       </div>
       <hr />
-      {/* Top portion banner of the Assignments */}
-      <ul className="list-group wd-modules"
-      style={{padding: "15px"}}>
-        <li className="list-group-item">
-          <div>
-            <FaEllipsisV style={{ color: "gray"}} className="me-2" /> 
-            <span style={{fontWeight:"bold"}}>ASSIGNMENTS</span>
-            <span className="float-end">
-              <span style={{ border: "1px solid lightgray", padding: "2px", borderRadius: "5px", fontSize: "13px" }}>
-                40% of total
-              </span>
-              <FaCheckCircle style={{marginLeft: "6px"}} className="text-success" />
-              <FaPlus style={{ color: "gray"}} className="ms-2" />
-              <FaEllipsisV style={{ color: "gray"}} className="ms-2" />
+        <ul className="list-group wd-modules"
+        style={{padding: "15px"}}>
+          <li className="list-group-item">
+            <div>
+          <FaEllipsisV style={{ color: "gray"}} className="me-2" /> 
+          <span style={{fontWeight:"bold"}}>ASSIGNMENTS</span>
+          <span className="float-end">
+            <span style={{ border: "1px solid lightgray", padding: "2px", borderRadius: "5px", fontSize: "13px" }}>
+              40% of total
             </span>
-          </div>
-          <ul className="list-group">
-            {assignmentList.map((assignment) => (
-              <li className="list-group-item d-flex align-items-center">
-                <div>
-                  <div className="d-flex align-items-center">
-                    <RxDragHandleDots2 style={{ color: "gray" }} className="me-2" />
-                    <TfiWrite style={{ color: "green" }} className="me-2" />
-                  </div>
-                </div>
-                <div className="flex-grow-1">
-                  <Link
-                    to={`/Kanbas/Courses/${courseId}/Assignments/${assignment._id}`}
-                    className="assignment-link"
-                    style={{
-                      marginLeft: "10px",
-                      textDecoration: "none",
-                      color: "black",
-                      fontWeight: "bolder",
-                    }}
-                  >
-                    {assignment.title}
-                  </Link>
-                  <br />
-                  <Link
-                    to={`/Kanbas/Courses/${courseId}/Assignments/`}
-                    style={{
-                      fontSize: "10px",
-                      color: "darkred",
-                      marginLeft: "10px",
-                      marginRight: "5px", 
-                    }}
-                  >
-                    Multiple Modules
-                  </Link>
-                  <span style={{ fontSize: "10px", color: "grey" }}>
-                    | {assignment.duedate}
-                  </span>
-                </div>
-                <div className="float-end">
-                  <button className="btn btn-danger"
-                  style={{marginRight: "10px", borderRadius: "5px", height: "30px", width: "60px"}}
-                  onClick={() => handleDelete(assignment._id)}
-                  >Delete</button>
-                  <FaCheckCircle className="text-success" />
-                  <FaEllipsisV style={{ color: "gray" }} className="ms-2" />
-                </div>
-              </li>
-            ))}
-          </ul>
-        </li>
-      </ul>
-    </>
-);}
+            <FaCheckCircle style={{marginLeft: "6px"}} className="text-success" />
+            <FaPlus style={{ color: "gray"}} className="ms-2" />
+            <FaEllipsisV style={{ color: "gray"}} className="ms-2" />
+          </span>
+            </div>
+            <ul className="list-group">
+          {assignmentList.map((assignment) => (
+            <li className="list-group-item d-flex align-items-center">
+              <div>
+            <div className="d-flex align-items-center">
+              <RxDragHandleDots2 style={{ color: "gray" }} className="me-2" />
+              <TfiWrite style={{ color: "green" }} className="me-2" />
+            </div>
+              </div>
+              <div className="flex-grow-1">
+            <Link
+              to={`/Kanbas/Courses/${courseId}/Assignments/${assignment._id}`}
+              className="assignment-link"
+              style={{
+                marginLeft: "10px",
+                textDecoration: "none",
+                color: "black",
+                fontWeight: "bolder",
+              }}
+            >
+              {assignment.title}
+            </Link>
+            <br />
+            <Link
+              to={`/Kanbas/Courses/${courseId}/Assignments/`}
+              style={{
+                fontSize: "10px",
+                color: "darkred",
+                marginLeft: "10px",
+                marginRight: "5px", 
+              }}
+            >
+              Multiple Modules
+            </Link>
+            <span style={{ fontSize: "10px", color: "grey" }}>
+              {/* Changing the format of the database due date */}
+              | Due {new Date(assignment.duedate).toLocaleString('en-US',
+               { month: 'short', day: 'numeric', year: 'numeric', hour: 'numeric', minute: 'numeric', hour12: true })} | {assignment.points} Points
+            </span>
+              </div>
+              <div className="float-end">
+            <button className="btn btn-danger"
+            style={{marginRight: "10px", borderRadius: "5px", height: "30px", width: "60px"}}
+            onClick={() => handleDelete(assignment._id)}
+            >Delete</button>
+            <FaCheckCircle className="text-success" />
+            <FaEllipsisV style={{ color: "gray" }} className="ms-2" />
+              </div>
+            </li>
+          ))}
+            </ul>
+          </li>
+        </ul>
+          </>
+  );
+}
 export default Assignments;
