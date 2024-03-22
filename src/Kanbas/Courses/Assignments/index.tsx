@@ -1,19 +1,43 @@
-import React from "react";
+import React, { useState } from "react";
 import { FaCheckCircle, FaEllipsisV, FaPlusCircle, FaPlus } from "react-icons/fa";
 import { RxDragHandleDots2 } from "react-icons/rx";
 import {TfiWrite} from "react-icons/tfi"
 import { Link, useParams } from "react-router-dom";
 import { assignments } from "../../Database";
+import { useSelector, useDispatch } from "react-redux";
+import {
+  addAssignment,
+  deleteAssignment,
+  updateAssignment,
+  selectAssignment,
+} from "./assignmentsReducer"
+import { KanbasState } from "../../store";
 
 function Assignments() {
   const { courseId } = useParams();
-  const assignmentList = assignments.filter(
-    (assignment) => assignment.course === courseId);
-  const {duedate} = useParams();
-
+  const assignmentsList = assignments.filter((assignment) => assignment.course === courseId);
+  const [selectedAssignment, setSelectedAssignment] = useState(assignmentsList[0]);
+  // Create a new assignment list
+  const assignmentList = useSelector((state: KanbasState) =>
+    state.assignmentReducer.assignments
+  );
+  // Create a new assignment
+  const assignment = useSelector((state: KanbasState) =>
+    state.assignmentReducer.assignment
+  );
+  // Create dispatch function
+  const dispatch = useDispatch();
+  // Create handleDelete variable
+  const handleDelete = (assignmentId: any) => {
+    // Ask for confirmation
+    const confirmation = window.confirm("Are sure you want to remove the assignment?")
+    if (confirmation) {
+      dispatch(deleteAssignment(assignmentId));
+    }
+  }
   return (
     <>
-    {/* THis is the banner of buttons */}
+    {/* This is the banner of buttons */}
         <div>
           <input
             type="text"
@@ -21,20 +45,30 @@ function Assignments() {
             className="buttons"
             style={{height:"40px"}}
           />
-          <span className="float-end">
-        <button className="btn btn-outline-secondary btn-custom buttons"
-        style={{marginLeft: "150px"}}>
-          <FaPlus className="me-2" style={{ color: "gray" }} />
-          Group
-        </button>
-        <button className="btn btn-danger">
-          <FaPlus className="me-2" 
-          /> Assignment
-        </button>
-        <button style={{ width: "40px"}} className="btn btn-outline-secondary btn-custom buttons">
-          <FaEllipsisV className="me-2" />
-        </button>
-        </span>
+            <span className="float-end">
+          <button className="btn btn-outline-secondary btn-custom buttons"
+          style={{marginLeft: "150px"}}>
+            <FaPlus className="me-2" style={{ color: "gray" }} />
+            Group
+          </button>
+          {/* Add Assignment Button */}
+          <button className="btn btn-danger">
+          <Link
+            style={{
+            textDecoration: "none",
+            marginRight: "5px", 
+            color: "white"
+          }}
+          to={`/Kanbas/Courses/${courseId}/Assignments/${assignment._id}`}
+          >
+            <FaPlus className="me-2" 
+            /> Assignment
+          </Link>
+          </button>
+          <button style={{ width: "40px"}} className="btn btn-outline-secondary btn-custom buttons">
+            <FaEllipsisV className="me-2" />
+          </button>
+          </span>
       </div>
       <hr />
       {/* Top portion banner of the Assignments */}
@@ -92,6 +126,10 @@ function Assignments() {
                   </span>
                 </div>
                 <div className="float-end">
+                  <button className="btn btn-danger"
+                  style={{marginRight: "10px", borderRadius: "5px", height: "30px", width: "60px"}}
+                  onClick={() => handleDelete(assignment._id)}
+                  >Delete</button>
                   <FaCheckCircle className="text-success" />
                   <FaEllipsisV style={{ color: "gray" }} className="ms-2" />
                 </div>
