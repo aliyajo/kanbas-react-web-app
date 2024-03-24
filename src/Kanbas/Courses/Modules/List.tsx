@@ -27,6 +27,8 @@ function ModuleList() {
 
   return (
     <>
+    <div style={{ overflowY: "auto", maxHeight: "90vh"}}>
+
       <div className="button-container">
         <button className="btn btn-outline-secondary btn-custom buttons">
           Collapse All
@@ -46,6 +48,7 @@ function ModuleList() {
         </button>
       </div>
       <hr />
+      <div className="scroll-container">
       <ul className="list-group wd-modules"
       style={{padding: "15px"}}>
         {/* Heading for editing module */}
@@ -153,6 +156,8 @@ function ModuleList() {
           </li>
         ))}
       </ul>
+      </div>
+      </div>
     </>
   );
 }

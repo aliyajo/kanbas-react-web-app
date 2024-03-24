@@ -1,7 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate, useParams, Link } from "react-router-dom";
-import { assignments } from "../../../Database";
-import { FaCheckCircle, FaPlus, FaEllipsisV } from "react-icons/fa";
 import { useSelector, useDispatch } from "react-redux";
 import {
   addAssignment,
@@ -9,19 +7,69 @@ import {
   selectAssignment,
 } from "../assignmentsReducer";
 import { KanbasState } from "../../../store";
-
+import { FaCheckCircle, FaEllipsisV } from "react-icons/fa";
+// Create AssignmentEditor function
 function AssignmentEditor() {
-  const { assignmentId } = useParams();
+  const { assignmentId, courseId } = useParams();
   const assignment = useSelector((state: KanbasState) =>
     state.assignmentReducer.assignments.find((a) => a._id === assignmentId)
   );
-
-  const { courseId } = useParams();
+  // Create navigate variable
   const navigate = useNavigate();
+  // Create dispatch function
   const dispatch = useDispatch();
-  // Create the updateMode variable
-  const [updateMode] = useState(assignment?.title ? true : false);
-  
+  // -- These variables are used to store the assignment data -- 
+  // Create assignmentName variable
+  const [assignmentName, setAssignmentName] = useState(assignment ? assignment.title : "New Assignment");
+  // Create description variable
+  const [description, setDescription] = useState(assignment ? assignment.description || "" : "New Assignment Description");
+  // Create points variable
+  const [points, setPoints] = useState(assignment ? assignment.points || "" : "0");
+  // Create dueDate variable
+  const [dueDate, setDueDate] = useState(assignment ? assignment.dueDate || "" : "");
+  // Create availableFromDate variable
+  const [availableFromDate, setAvailableFromDate] = useState(assignment ? assignment.availableFromDate || "" : "");
+  // Create availableUntil variable
+  const [availableUntil, setAvailableUntil] = useState(assignment ? assignment.availableUntil || "" : "");
+  // use useEffect to update the assignment data
+  useEffect(() => {
+    if (assignment) {
+      setAssignmentName(assignment.title);
+      setDescription(assignment.description || "");
+      setPoints(assignment.points || "");
+      setDueDate(assignment.dueDate || "");
+      setAvailableFromDate(assignment.availableFromDate || "");
+      setAvailableUntil(assignment.availableUntil || "");
+    }
+  }, [assignment]);
+  // Create handleAssignmentUpdate variable
+  const handleAssignmentUpdate = () => {
+    const updatedAssignment = {
+      ...assignment,
+      title: assignmentName,
+      description,
+      points,
+      dueDate,
+      availableFromDate,
+      availableUntil,
+    };
+    dispatch(updateAssignment(updatedAssignment));
+    navigate(`/Kanbas/Courses/${courseId}/Assignments`);
+  };
+  // Create handleAssignmentSave variable
+  const handleAssignmentSave = () => {
+    const newAssignment = {
+      title: assignmentName,
+      description,
+      points,
+      dueDate,
+      availableFromDate,
+      availableUntil,
+    };
+    dispatch(addAssignment(newAssignment));
+    navigate(`/Kanbas/Courses/${courseId}/Assignments`);
+  };
+
   return (
     <div style={{ padding: "15px" }}>
       <div>
@@ -49,89 +97,63 @@ function AssignmentEditor() {
       <br />
       <hr />
       <div>
-          {updateMode && <h5><strong>Editing Assignment : {assignment?.title}</strong></h5>
-        }
-        {/* Heading if adding new assignment */}
-        {!updateMode && <h5><strong>Add New Assignment</strong></h5>}
+        <h5>
+          <strong>
+            {assignment ? `Editing Assignment : ${assignment.title}` : "Add New Assignment"}
+          </strong>
+        </h5>
         <br />
-        {/* Edit Assignment Name */}
         <h6>Assignment Name</h6>
         <input
-          value={assignment?.title || "New Assignment"}
+          value={assignmentName}
           className="form-control mb-2"
-          onChange={(e) => dispatch(selectAssignment({ ...assignment, title: e.target.value }))}
+          onChange={(e) => setAssignmentName(e.target.value)}
         />
-        {/*
-        <br />
-
-        {/* Edit Assignment Description */}
         <h6>Assignment Description</h6>
         <textarea
-          value={assignment?.description || "New Assignment Description"}
+          value={description}
           className="form-control mb-2"
-          onChange={(e) => dispatch(selectAssignment({ ...assignment, description: e.target.value }))}
+          onChange={(e) => setDescription(e.target.value)}
         />
-        {/* Edit Assignment Points */}
         <h6>Points</h6>
         <input
-          value={assignment?.points || 0}
+          value={points}
           className="form-control mb-2"
+          onChange={(e) => setPoints(e.target.value)}
         />
-        <br />
         <div>
-          <h6> Assign</h6>
-          <div style={{ width: "50%", margin: "0 auto"}}>
-            {/* Edit Due Date */}
-            <h6>Due Date</h6>
-            <input
-              value={assignment?.duedate}
-              type="datetime-local"
-              className="form-control mb-2"
-              onChange={(e) => dispatch(selectAssignment({ ...assignment, duedate: e.target.value }))}
-            />
-          {/* Edit Available from date */}
+          <h6>Due Date</h6>
+          <input
+            value={dueDate}
+            type="datetime-local"
+            className="form-control mb-2"
+            onChange={(e) => setDueDate(e.target.value)}
+          />
           <h6>Available from</h6>
           <input
-            value={assignment?.availablefrom }
+            value={availableFromDate}
             type="date"
             className="form-control mb-2"
-            onChange={(e) => dispatch(selectAssignment({ ...assignment, availablefrom: e.target.value }))}
+            onChange={(e) => setAvailableFromDate(e.target.value)}
           />
-          {/* Edit Until Date */}
           <h6>Until</h6>
           <input
-            value={assignment?.until}
+            value={availableUntil}
             type="date"
             className="form-control mb-2"
-            onChange={(e) => dispatch(selectAssignment({ ...assignment, until: e.target.value }))}
+            onChange={(e) => setAvailableUntil(e.target.value)}
           />
         </div>
-        </div>
         <hr />
-        {/* Update Assignment */}
-        {
-          updateMode &&
-          <button
-            onClick={() => {
-              dispatch(updateAssignment(assignment));
-              navigate(`/Kanbas/Courses/${courseId}/Assignments`);
-            }}
-            className="btn btn-danger ms-2 float-end"
-          >
+        {assignment ? (
+          <button onClick={handleAssignmentUpdate} className="btn btn-danger ms-2 float-end">
             Update
           </button>
-        }
-        {/* Add New Assignment */}
-        {!updateMode &&
-        <button onClick={() => {
-          dispatch(addAssignment(assignment));
-          navigate(`/Kanbas/Courses/${courseId}/Assignments`);
-        }} 
-        className="btn btn-danger ms-2 float-end">
-          Save
-        </button>
-        }
-        {/* Cancel, Don't Save */}
+        ) : (
+          <button onClick={handleAssignmentSave} className="btn btn-danger ms-2 float-end">
+            Save
+          </button>
+        )}
         <Link
           to={`/Kanbas/Courses/${courseId}/Assignments`}
           className="btn float-end buttons"
@@ -142,4 +164,5 @@ function AssignmentEditor() {
     </div>
   );
 }
+
 export default AssignmentEditor;
